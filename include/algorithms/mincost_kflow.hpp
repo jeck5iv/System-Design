@@ -1,9 +1,10 @@
 #ifndef MINCOST_KFLOW_HPP
 #define MINCOST_KFLOW_HPP
 
-#include <vector>
-#include <queue>
 #include <climits>
+#include <queue>
+#include <vector>
+
 #include "graph.hpp"
 
 namespace graph {
@@ -16,8 +17,7 @@ public:
 
     class MinCostKFlowResult {
     public:
-        explicit MinCostKFlowResult(int flow, int cost)
-            : m_flow(flow), m_cost(cost) {}
+        explicit MinCostKFlowResult(int flow, int cost) : m_flow(flow), m_cost(cost) {}
 
         int getFlow() const { return m_flow; }
         int getCost() const { return m_cost; }

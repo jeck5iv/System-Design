@@ -1,11 +1,12 @@
 #ifndef A_STAR_HPP
 #define A_STAR_HPP
 
-#include <vector>
-#include <queue>
-#include <unordered_map>
 #include <cmath>
 #include <functional>
+#include <queue>
+#include <unordered_map>
+#include <vector>
+
 #include "graph.hpp"
 
 namespace graph {
@@ -42,7 +43,8 @@ typename AStar<edgeType>::AStarResult AStar<edgeType>::run(int start, int goal) 
     std::unordered_map<int, double> gScore;
     std::unordered_map<int, double> fScore;
     std::unordered_map<int, int> cameFrom;
-    std::priority_queue<std::pair<double, int>, std::vector<std::pair<double, int>>, std::greater<>> openSet;
+    std::priority_queue<std::pair<double, int>, std::vector<std::pair<double, int>>, std::greater<>>
+        openSet;
 
     gScore[start] = 0;
     fScore[start] = m_heuristic(start, goal);

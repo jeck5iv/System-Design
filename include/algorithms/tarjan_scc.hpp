@@ -1,10 +1,11 @@
 #ifndef TARJAN_SCC_HPP
 #define TARJAN_SCC_HPP
 
-#include <vector>
-#include <stack>
 #include <algorithm>
 #include <cstdint>
+#include <stack>
+#include <vector>
+
 #include "graph.hpp"
 
 namespace graph {
@@ -28,8 +29,9 @@ public:
     SCCResult run();
 
 private:
-    void dfs(std::int32_t v, std::vector<std::int32_t>& lowLink, std::vector<std::int32_t>& preOrder,
-             std::vector<bool>& onStack, std::stack<std::int32_t>& stack, std::vector<std::vector<std::int32_t>>& result);
+    void dfs(std::int32_t v, std::vector<std::int32_t>& lowLink,
+             std::vector<std::int32_t>& preOrder, std::vector<bool>& onStack,
+             std::stack<std::int32_t>& stack, std::vector<std::vector<std::int32_t>>& result);
 
     Graph<edgeType>& m_graph;
 };
@@ -56,8 +58,10 @@ typename TarjanSCC<edgeType>::SCCResult TarjanSCC<edgeType>::run() {
 }
 
 template <typename edgeType>
-void TarjanSCC<edgeType>::dfs(std::int32_t v, std::vector<std::int32_t>& lowLink, std::vector<std::int32_t>& preOrder,
-                              std::vector<bool>& onStack, std::stack<std::int32_t>& stack, std::vector<std::vector<std::int32_t>>& result) {
+void TarjanSCC<edgeType>::dfs(std::int32_t v, std::vector<std::int32_t>& lowLink,
+                              std::vector<std::int32_t>& preOrder, std::vector<bool>& onStack,
+                              std::stack<std::int32_t>& stack,
+                              std::vector<std::vector<std::int32_t>>& result) {
     preOrder[v] = lowLink[v] = currentOrder++;
     stack.push(v);
     onStack[v] = true;

@@ -1,10 +1,10 @@
 #ifndef DINICS_HPP
 #define DINICS_HPP
 
-#include <vector>
-#include <queue>
-#include <limits>
 #include <algorithm>
+#include <limits>
+#include <queue>
+#include <vector>
 
 namespace graph {
 
