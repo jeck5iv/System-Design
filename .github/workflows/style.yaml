@@ -8,7 +8,6 @@ jobs:
       matrix:
         path:
           - 'include'
-          - 'src'
           - 'tests'
     steps:
       - uses: actions/checkout@v4

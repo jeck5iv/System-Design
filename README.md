@@ -1,6 +1,11 @@
 # System-Design
 System Design homeworks HSE 2025
 
+## Авторы
+* Поволоцкий Роман [romanpovol](https://github.com/romanpovol)
+* Новицкий Григорий [GrigoriyNovitskiy](https://github.com/GrigoriyNovitskiy)
+* Филатов Юрий [YuriiFilatov](https://github.com/YuriiFilatov)
+
 ## Описание библиотеки
 В данной библиотеке представлен набор алгоритмов для анализа графов:
 
@@ -14,3 +19,29 @@ System Design homeworks HSE 2025
 | Алгоритм Куна | Поиск максимального паросочетания в двудольном графе | $O(VE)$ | На практике, с помощью оптимизаций работает довольно быстро |
 | Алгоритм Диница | Поиск максимального потока в сети | $O(VE\log C)$ | Использует слоистую сеть для оптимизации поиска кратчайших увеличивающих путей |
 | MinCost k-flow | Поиск потока $f: \|f\| = k, W(f) \rightarrow min$ | $O(VE + k\cdot Dijkstra)$ | Работает для циклов отрицательного веса |
+
+## Запуск библиотеки
+```
+mkdir build && cd build
+cmake ..
+cmake --build .
+```
+- В папке `build` будет лежать библиотека - `libSystem_Design`
+- Тесты- `./build/tests/tests`
+- Бенчмарки - `./build/tests/benchmarks/benchmarks`
+
+
+## Как контрибьютить в библиотеку
+- Добавить header файл в папку `include/algorithms/`, описать класс и работу функций аналогично написанным алгоритмам
+- Добавить описание и архитектуру в `architecture.md`
+- Добавить тесты для алгоритма 
+	- Создать файл вида `test_algo_name.cpp` и написать сами тесты
+	- В `tests/CMakeLists.txt` добавить `test_algo_name.cpp` в секцию `add_executable`
+	- Если при написании теста понадобилось что-то, не относящееся непосредственно к алгоритму, вынести это в файл `/tests/utility.hpp`
+	- Тесты используют библиотеку `gtest`
+- Для создания бенчмарок
+	- Создать файл вида `benchmarks_algo_name.cpp` и написать функции для измерения времени работы
+	- В `tests/benchmarks/CMakeLists.txt` добавить `benchmarks_algo_name.cpp` в секцию `add_executable`
+	- Для измерения затрачиваемой памяти используется утилита [heaptrack](https://github.com/KDE/heaptrack)
+	- `heaptrack ./build/tests/benchmarks/benchmarks` -- команда для запуска сборки метрик
+	- `heaptrack_gui heaptrack.benchmarks.***.zst` -- команда для запуска UI
