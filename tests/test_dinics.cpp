@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "dinics.hpp"
+#include "gtest/gtest.h"
 
 TEST(DinicsTest, BaseTest) {
     graph::Dinic<int> dinic(6);

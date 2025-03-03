@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "a_star.hpp"
+#include "gtest/gtest.h"
 
 double heuristic(int node, int goal) {
     // Простая эвристика: эвристика Манхэттенского расстояния
